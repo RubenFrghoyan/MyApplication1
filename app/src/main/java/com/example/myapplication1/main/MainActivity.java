@@ -1,4 +1,4 @@
-package com.example.myapplication1;
+package com.example.myapplication1.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.myapplication1.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
