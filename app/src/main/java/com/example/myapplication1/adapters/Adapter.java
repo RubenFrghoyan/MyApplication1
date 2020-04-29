@@ -41,8 +41,8 @@ public class Adapter extends RecyclerView.Adapter  {
 
         AbstractCard card;
         card=new CardViewPerson(context,parent);
-
         return card;
+
     }
 
     @Override
@@ -52,6 +52,8 @@ public class Adapter extends RecyclerView.Adapter  {
 
         Persons myPerson= persons.get(position);
         card.bind(myPerson);
+
+
 
     }
 

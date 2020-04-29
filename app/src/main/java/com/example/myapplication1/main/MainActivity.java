@@ -2,6 +2,7 @@ package com.example.myapplication1.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button start;
     private TextView textView;
+    private TextView nameText;
     private EditText editText;
     private int seconds;
 
@@ -24,13 +26,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         start = findViewById(R.id.start);
         textView = findViewById(R.id.text_view);
         editText = findViewById(R.id.edit_text);
-        
+        nameText=findViewById(R.id.name_surname);
+
+        setData();
+
+
         start.setOnClickListener(this);
         
     }
+
+
 
     @Override
     public void onClick(View v) {
@@ -79,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 textView.setText(time);
                 if(seconds==0){
                     textView.setTextColor(Color.RED);
+                    nameText.setTextColor(Color.RED);
                 }
 
             }
@@ -103,4 +113,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         };
         t.start();
     }
+
+    private void setData() {
+
+        Intent intent= getIntent();
+        String text = intent.getStringExtra("name");
+        nameText.setText(text);
+
+    }
+
+
 }
