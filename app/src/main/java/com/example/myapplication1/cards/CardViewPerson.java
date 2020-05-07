@@ -16,6 +16,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.example.myapplication1.R;
 //import com.example.myapplication1.databinding.MyCardViewBinding;
+import com.example.myapplication1.databinding.MyCardViewBinding;
 import com.example.myapplication1.main.MainActivity;
 import com.example.myapplication1.model.Persons;
 
@@ -23,6 +24,7 @@ public class CardViewPerson extends AbstractCard {
 
     private AppCompatTextView name;
     private LinearLayout container;
+    MyCardViewBinding myCardViewBinding;
 
     public CardViewPerson(@NonNull View itemView, final Context context) {
         super(itemView,context);
@@ -45,26 +47,28 @@ public class CardViewPerson extends AbstractCard {
 
         final Persons person= (Persons) obj;
 
-        /*MyCardViewBinding myCardViewBinding;
-        myCardViewBinding= DataBindingUtil.setContentView((Activity) context,R.layout.activity_main2);
-        myCardViewBinding.setPerson(person);*/
 
         name.setText(person.getName()+"   "+person.getSurname());
         name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Toast.makeText(context, "The id is:  "+person.getiD(),Toast.LENGTH_LONG).show();
+               Toast.makeText(context, "The id is:  "+person.getiD(),Toast.LENGTH_SHORT).show();
 
-               Intent intent = new Intent(context,MainActivity.class);
-               intent.putExtra("name",person.getName()+"   "+person.getSurname());
-               context.startActivity(intent);
+               openNewActivity(person);
+
+
+
 
             }
         });
 
     }
 
-
+    private void openNewActivity(Persons person) {
+        Intent intent = new Intent(context,MainActivity.class);
+        intent.putExtra("name",person.getName()+"   "+person.getSurname());
+        context.startActivity(intent);
+    }
 
 
 }

@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="70dp"
-    android:layout_gravity="center"
-    android:layout_margin="5dp"
-    >
+<layout>
+    <data>
 
-    <LinearLayout
-        android:id="@+id/my_container"
+        <variable
+            name="person"
+            type="com.example.myapplication1.model.Persons" />
+
+    </data>
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        >
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/name"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        <LinearLayout
+            android:id="@+id/my_container"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="left|center"
-            android:padding="5dp"
-            android:text="name"
-            android:textSize="20sp"/>
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="left|center"
+                android:padding="5dp"
+                android:text="@{person.name}"
+                android:textSize="20sp"/>
 
 
-    </LinearLayout>
+        </LinearLayout>
 
 
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+</layout>
